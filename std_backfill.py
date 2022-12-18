@@ -19,16 +19,20 @@ from jycm.jycm import YouchamaJsonDiffer
 # that directory
 data = {}
 data1 = {}
+jsons = {}
 files = Path(BASEDIR).glob('*.*')
+c=0
 for file in files:
     if  '.git' not in file.name and '.py' not in file.name:
         print(file)
         with open(file) as json_file:
             if '.json' in file.name:
                 data = json.load(json_file)
+                jsons[c]=data
+                c = c + 1
             else:
                 data1 = json.load(json_file)
-    
+       
         # Print the type of data variable
         print("Type:", type(data))
     
@@ -36,8 +40,12 @@ for file in files:
         print("\nPeople1:", data['meta'])
         #print("\nPeople2:", data['people2'])
         print("Type:", type(data['certification']['peak acceleration']))
-
-ycm = YouchamaJsonDiffer(data, data)
+print(len(jsons), " " , jsons)
+# for i, jsn in jsons:
+#     print(i, " ", jsn)
+left = jsons[0]
+right = jsons[1]
+ycm = YouchamaJsonDiffer(left, right)
 
 diff_result = ycm.get_diff() # new API
 
@@ -48,7 +56,7 @@ diff_result = ycm.get_diff() # new API
 # you can find generated html in the folder
 output_dir = "/Users/xxx/jycm-example-1"
 # you can directly view it by clicking the index.html file inside the folder
-url = dump_html_output(data, data1, diff_result, BASEDIR+"\\diff")
+url = dump_html_output(left, right, diff_result, BASEDIR+"\\diff")
 
 # if you want to open it from python
 open_url(url)

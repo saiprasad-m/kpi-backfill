@@ -11,25 +11,22 @@
     "WLTP" : {
         "WLTP BEV" : {
             "total_range" : { 
-                "value": 589
+                "value": 591
             },
             "total_consumption" : {
-                "value" : 136
+                "value" : 176
             }
         }
     },
     "propulsion" : {
-        "acceleration" : 7.4
+        "acceleration" : 7.2
     },
     "performance" : {
-        "consumption" : 543.0
+        "consumption" : 541.0
     },
     "certification" : {
         "peak acceleration" : [ 
             7.3, 
-            7.4,
-            7.2,
-            8.3,
             11.2
         ]
     },
