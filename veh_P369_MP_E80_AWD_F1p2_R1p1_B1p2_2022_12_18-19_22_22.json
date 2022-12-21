@@ -21,16 +21,13 @@
     "propulsion" : {
         "acceleration" : 7.2
     },
-    "performance" : {
-        "consumption" : 541.0
+    "braking" : {
+        "deceleration" : 51.0
     },
     "certification" : {
         "peak acceleration" : [ 
             7.3, 
             11.2
         ]
-    },
-    "losses" : {
-
     }
 }
