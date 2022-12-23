@@ -32,7 +32,17 @@ def empty_vals(json_elem):
             return ""
         else:
             return json_elem
-        
+
+def genjson(base, key, value):
+    key_list =  list(key.split("->"))
+    if len(key_list) == 2:
+        patch = base[key_list[0]]
+        fix = {key_list[1]: value}
+        print("patch",key_list, "\nb", base, "\nbm", base[key_list[0]], "\np", patch,"\nf", empty_vals(fix))
+        print( {key_list[0]: { **patch, **empty_vals(fix) }})
+        return {key_list[0]: { **patch, **empty_vals(fix) }}
+
+
 # iterate over files in
 # that directory
 data = {}
@@ -78,19 +88,19 @@ for i in range(len(jsons) - 1):
     json_file.append(jsonfl)
     print(BASEDIR+"\\"+"just4vispairs"+str(i)+".txt")
     diff_data = json.load(json_file[i])
-   
+
     for diff in diff_data:
-        print(i, "= ", diff['left'], " ", diff['right'], " : ", type(diff['left']), " - ", type(diff['right']))
+        print(i, "= lf", diff['left'], " rt", diff['right'], " : ", type(diff['left']), " - ", type(diff['right']))
         if "str" in str(type(diff['left'])):
             if "__NON_EXIST__" in diff['left']:
-                patch = {diff['right_path']: diff['right']}
+                patch = empty_vals({diff['right_path']: diff['right']}) if "->" not in diff['right_path'] else genjson(left,diff['right_path'], diff['right'])
                 #print("left side", left, " -- ", patch)
-                left.update(empty_vals(patch))
+                left.update(patch)
         if "str" in str(type(diff['right'])):
             if "__NON_EXIST__" in diff['right']:
-                patch = {diff['left_path']: diff['left']}
+                patch = empty_vals({diff['left_path']: diff['left']}) if "->" not in diff['left_path'] else genjson(right, diff['left_path'], diff['left'])
                 #print("right side", right, " -- " , patch)
-                right.update(empty_vals(patch))
+                right.update(patch)
 
     # normalized files are here.
     left_file = open(BASEDIR+"\\left"+str(i)+".txt", "w")

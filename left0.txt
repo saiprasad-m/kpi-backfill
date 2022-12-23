@@ -6,7 +6,9 @@
         "erad": "MEP2",
         "efad": "GEN21",
         "release": "7.0.0",
-        "comment": "comment"
+        "comment": "comment",
+        "gvm": 155.0,
+        "gtr": 135.8
     },
     "WLTP": {
         "WLTP BEV": {

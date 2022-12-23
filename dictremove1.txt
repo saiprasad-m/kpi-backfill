@@ -40,6 +40,12 @@
         "right_path": ""
     },
     {
+        "left": 0.0,
+        "right": "__NON_EXIST__",
+        "left_path": "meta->gtr",
+        "right_path": ""
+    },
+    {
         "left": {
             "consumption": 0.0
         },

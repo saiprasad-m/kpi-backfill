@@ -20,6 +20,18 @@
         "right_path": ""
     },
     {
+        "left": 135.8,
+        "right": "__NON_EXIST__",
+        "left_path": "meta->gtr",
+        "right_path": ""
+    },
+    {
+        "left": 155.0,
+        "right": "__NON_EXIST__",
+        "left_path": "meta->gvm",
+        "right_path": ""
+    },
+    {
         "left": {
             "consumption": 543.0
         },

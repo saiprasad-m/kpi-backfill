@@ -1,0 +1,10 @@
+[
+    {
+        "left": 0.0,
+        "right": 15.0,
+        "left_path": "meta->gvm",
+        "right_path": "meta->gvm",
+        "old": 0.0,
+        "new": 15.0
+    }
+]
