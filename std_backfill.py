@@ -38,8 +38,8 @@ def genjson(base, key, value):
     if len(key_list) == 2:
         patch = base[key_list[0]]
         fix = {key_list[1]: value}
-        print("patch",key_list, "\nb", base, "\nbm", base[key_list[0]], "\np", patch,"\nf", empty_vals(fix))
-        print( {key_list[0]: { **patch, **empty_vals(fix) }})
+        #print("patch",key_list, "\nb", base, "\nbm", base[key_list[0]], "\np", patch,"\nf", empty_vals(fix))
+        #print( {key_list[0]: { **patch, **empty_vals(fix) }})
         return {key_list[0]: { **patch, **empty_vals(fix) }}
 
 
@@ -48,6 +48,7 @@ def genjson(base, key, value):
 data = {}
 data1 = {}
 jsons = {}
+jnames = {}
 files = Path(BASEDIR).glob('*.*')
 c=0
 for file in files:
@@ -57,6 +58,7 @@ for file in files:
             if '.json' in file.name:
                 data = json.load(json_file)
                 jsons[c] = data
+                jnames[c] = file.name
                 c = c + 1
                 # Print the type of data variable
                 print("Type:", type(data))
@@ -81,7 +83,6 @@ for i in range(len(jsons) - 1):
 
         #print(type(diff), " ", str(diff.replace(':','')), " ", diff_result[diff])
         #print(BASEDIR+"\\"+str(diff.replace(':',''))+str(i)+".txt")
-    sleep(5)
     ## take just4vispairs.txt as json and backfill both the files
     diff_data=[]
     jsonfl = open(BASEDIR+"\\"+"just4vispairs"+str(i)+".txt", "r", encoding="utf-8")
@@ -103,9 +104,9 @@ for i in range(len(jsons) - 1):
                 right.update(patch)
 
     # normalized files are here.
-    left_file = open(BASEDIR+"\\left"+str(i)+".txt", "w")
+    left_file = open(BASEDIR+"\\"+jnames[i], "w")
     json.dump(left, left_file, indent=4)
-    right_file = open(BASEDIR+"\\right"+str(i)+".txt", "w")
+    right_file = open(BASEDIR+"\\"+jnames[i+1], "w")
     json.dump(right, right_file, indent=4)
 
     dirpath = Path(BASEDIR+"\\diff"+str(i)) # / BASEDIR+"\\diff"
