@@ -1,10 +1,10 @@
 [
     {
         "left": "__NON_EXIST__",
-        "left_path": "",
         "right": {
             "deceleration": 51.0
         },
+        "left_path": "",
         "right_path": "braking"
     }
 ]

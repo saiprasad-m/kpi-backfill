@@ -1,0 +1,11 @@
+{
+    "meta" :{
+        "vehicle" : "veh",
+        "name" : "P369 MP E80 AWD F1p2 R1p1 B1p2",
+        "type" : "AWD",
+        "erad" : "MEP2",
+        "efad" : "GEN21",
+        "release" : "7.0.0",
+        "comment" : "comment"
+    }
+}

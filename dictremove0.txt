@@ -1,16 +1,16 @@
 [
     {
         "left": {},
-        "left_path": "losses",
         "right": "__NON_EXIST__",
+        "left_path": "losses",
         "right_path": ""
     },
     {
         "left": {
             "consumption": 543.0
         },
-        "left_path": "performance",
         "right": "__NON_EXIST__",
+        "left_path": "performance",
         "right_path": ""
     }
 ]

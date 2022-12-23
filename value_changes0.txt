@@ -1,26 +1,26 @@
 [
     {
         "left": 136,
-        "left_path": "WLTP->WLTP BEV->total_consumption->value",
-        "new": 176,
-        "old": 136,
         "right": 176,
-        "right_path": "WLTP->WLTP BEV->total_consumption->value"
+        "left_path": "WLTP->WLTP BEV->total_consumption->value",
+        "right_path": "WLTP->WLTP BEV->total_consumption->value",
+        "old": 136,
+        "new": 176
     },
     {
         "left": 589,
-        "left_path": "WLTP->WLTP BEV->total_range->value",
-        "new": 591,
-        "old": 589,
         "right": 591,
-        "right_path": "WLTP->WLTP BEV->total_range->value"
+        "left_path": "WLTP->WLTP BEV->total_range->value",
+        "right_path": "WLTP->WLTP BEV->total_range->value",
+        "old": 589,
+        "new": 591
     },
     {
         "left": 7.4,
-        "left_path": "propulsion->acceleration",
-        "new": 7.2,
-        "old": 7.4,
         "right": 7.2,
-        "right_path": "propulsion->acceleration"
+        "left_path": "propulsion->acceleration",
+        "right_path": "propulsion->acceleration",
+        "old": 7.4,
+        "new": 7.2
     }
 ]
