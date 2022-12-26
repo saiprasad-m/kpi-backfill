@@ -1,39 +1,33 @@
 {
-    "meta": {
-        "vehicle": "veh",
-        "name": "P369 MP E80 AWD F1p2 R1p1 B1p2",
-        "type": "AWD",
-        "erad": "MEP2",
-        "efad": "GEN21",
-        "release": "7.0.0",
-        "comment": "comment",
-        "gtr": 0.0,
-        "gvm": 0.0
+    "meta" :{
+        "vehicle" : "veh",
+        "name" : "P369 MP E80 AWD F1p2 R1p1 B1p2",
+        "type" : "AWD",
+        "erad" : "MEP2",
+        "efad" : "GEN21",
+        "release" : "7.0.0",
+        "comment" : "comment"        
     },
-    "WLTP": {
-        "WLTP BEV": {
-            "total_range": {
+    "WLTP" : {
+        "WLTP BEV" : {
+            "total_range" : { 
                 "value": 591
             },
-            "total_consumption": {
-                "value": 176
+            "total_consumption" : {
+                "value" : 176
             }
         }
     },
-    "propulsion": {
-        "acceleration": 7.2
+    "propulsion" : {
+        "acceleration" : 7.2
     },
-    "braking": {
-        "deceleration": 51.0
+    "braking" : {
+        "deceleration" : 51.0
     },
-    "certification": {
-        "peak acceleration": [
-            7.3,
+    "certification" : {
+        "peak acceleration" : [ 
+            7.3, 
             11.2
         ]
-    },
-    "losses": {},
-    "performance": {
-        "consumption": 0.0
     }
 }

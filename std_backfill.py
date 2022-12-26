@@ -50,6 +50,7 @@ data1 = {}
 jsons = {}
 jnames = {}
 files = Path(BASEDIR).glob('*.*')
+base_dir = Path(BASEDIR)
 c=0
 for file in files:
     if  '.git' not in file.name and '.py' not in file.name:
@@ -78,16 +79,20 @@ for i in range(len(jsons) - 1):
     diff_result = ycm.get_diff() # new API
     print("Type diff_result:", type(diff_result))
     for diff in dict(diff_result):
-        with open(BASEDIR+"\\"+str(diff.replace(':',''))+str(i)+".txt", "w") as out_file:
+        filename = diff.replace(':', '')+str(i)+".txt"
+        file = base_dir / filename
+        with open(file, "w") as out_file:
             json.dump(diff_result[diff], out_file, indent=4, skipkeys=True)
 
         #print(type(diff), " ", str(diff.replace(':','')), " ", diff_result[diff])
         #print(BASEDIR+"\\"+str(diff.replace(':',''))+str(i)+".txt")
     ## take just4vispairs.txt as json and backfill both the files
     diff_data=[]
-    jsonfl = open(BASEDIR+"\\"+"just4vispairs"+str(i)+".txt", "r", encoding="utf-8")
+    filename = "just4vispairs"+str(i)+".txt"
+    file = base_dir / filename
+    jsonfl = open(file, "r", encoding="utf-8")
     json_file.append(jsonfl)
-    print(BASEDIR+"\\"+"just4vispairs"+str(i)+".txt")
+    print(Path(file))
     diff_data = json.load(json_file[i])
 
     for diff in diff_data:
@@ -104,16 +109,20 @@ for i in range(len(jsons) - 1):
                 right.update(patch)
 
     # normalized files are here.
-    left_file = open(BASEDIR+"\\"+jnames[i], "w")
+    file_l = base_dir / jnames[i]
+    left_file = open(file_l, "w")
     json.dump(left, left_file, indent=4)
-    right_file = open(BASEDIR+"\\"+jnames[i+1], "w")
+    file_r = base_dir / jnames[i+1]
+    right_file = open(file_r, "w")
     json.dump(right, right_file, indent=4)
 
-    dirpath = Path(BASEDIR+"\\diff"+str(i)) # / BASEDIR+"\\diff"
+    foldername ="diff"+str(i)
+    rep_folder = base_dir / foldername
+    dirpath = Path(rep_folder) # / BASEDIR+"\\diff"
     if dirpath.exists() and dirpath.is_dir():
         shutil.rmtree(dirpath)
     # you can directly view it by clicking the index.html file inside the folder
-    url = dump_html_output(left, right, diff_result, BASEDIR+"\\diff"+str(i))
+    url = dump_html_output(left, right, diff_result, rep_folder)
 
     # if you want to open it from python
     #open_url(url)
